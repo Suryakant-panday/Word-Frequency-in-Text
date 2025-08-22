@@ -1,0 +1,21 @@
+def word_frequency(text):
+    text = text.lower()
+    
+
+    for ch in ['.', ',', '!', '?', ';', ':', '"', "'", "(", ")", "-"]:
+        text = text.replace(ch, "")
+
+    words = text.split()
+    
+    freq = {}
+    
+    for word in words:
+        freq[word] = freq.get(word, 0) + 1
+    
+    return freq
+text_input = "Hello world! Hello Python. Python is great, and Python is fun."
+result = word_frequency(text_input)
+
+print("Word Frequency:")
+for word, count in result.items():
+    print(f"{word}: {count}")
